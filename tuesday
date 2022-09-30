@@ -1,0 +1,53 @@
+Step#1 Install Ansible 
+yum install ansible
+
+Step#2
+inventory file:
+[servers]
+107.20.100.19 ansible_user=ec2-user
+23.22.135.70 ansible_user=ec2-user
+
+playbook.yaml
+---
+- name: install apache across our redhat machines
+  hosts: servers
+  become: yes
+  tasks:
+    - name: Install Apache nginx postgresql  httpd software
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+    - name: Start and enable Apache
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+Step#3
+configure key
+Step3.1: 
+get into server1
+passwd <username>
+
+Step 3.2:
+vi /etc/ssh/sshd_config ---> PasswordAuthentication yes
+
+Step 3.3:
+service sshd restart
+
+Step 4:
+ansible-playbook -i inventory playbook.yml
+(edited)
+
+
+Shashank Gonchigars
+  8:18 AM
+Task#1
+run the Playbook to install httpd
+Start httpd
+Task#2
+Install postgresql
+Task#3
+in inventory Servers , Database
+install httpd on server, postgresql on DB.
+
