@@ -35,10 +35,6 @@ passwd <username>
 Step 3.2:
 vi /etc/ssh/sshd_config ---> search for --> #PasswordAuthentication yes --> change to --> PasswordAuthentication yes
 
-
-
-
-levelup levelup leve up
 Step 3.3:
 service sshd restart
 
