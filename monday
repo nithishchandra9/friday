@@ -44,3 +44,8 @@ ssh-copy-id ec2-user@x.x.x.x
 
 Step 4:
 ansible-playbook -i inventory playbook.yml
+
+
+
+
+ashok
